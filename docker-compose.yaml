@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  peer-server:
+    image: peerjs/peerjs-server
+  peer-client:
+    image: nginx
+    volumes:
+    - ./client/:/etc/nginx/templates
+    ports:
+    - "8089:80"
+    environment:
+    - NGINX_HOST=foobar.com
+    - NGINX_PORT=80
